@@ -55,9 +55,12 @@ På slutskärmen skall du rita ut minst 5 valfria sprites med slumpad position.
 
 1 Först skapar Entity basklass, underklasserna är Bullet, Player och Enemy.
 2 Gör player class klar: 
-- Texture renderas och positoneras sig på skärmen. 
-- Player kan röra på sig
+- Texture renderas och positoneras sig på skärmen, startar i mitten botten av skärmen - DONE! 
+- Spelare håller sig i fönstret. DONE!. 
+- Player kan röra på sig på X-Axlen (Gör en InputManager - single responsibility - den ska bara ta hand om input. )- DONE! 
+- Plyer ska kunna skjuta! 
 - Player ska ha bullet texture i konstruktorn, eftersom den ska kunna skjuta 
+- BulletManager ska köras I playerclass eftersom då kan player.draw() rita både sprite och bullet. 
 
 
 

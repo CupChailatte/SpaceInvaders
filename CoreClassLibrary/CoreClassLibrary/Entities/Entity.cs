@@ -8,7 +8,7 @@ namespace CoreClassLibrary.Entities;
 public class Entity
 {
     // Spatial & Visuel Data 
-    public Vector2 Position { get; set; }
+    public Vector2 Position; 
     public Texture2D Texture { get; protected set; }
 
     //Flaga för att managerna ska veta när objektet ska tas bort ur minnet
