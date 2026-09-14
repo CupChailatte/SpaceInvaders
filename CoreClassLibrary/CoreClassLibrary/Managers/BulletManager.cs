@@ -26,7 +26,7 @@ public class BulletManager
 
     public void Update(float deltaTime)
     {
-        for (int i = _activeBulletList.Count -1; i >= 0; i--)
+        for (int i = _activeBulletList.Count - 1; i >= 0; i--)
         {
             _activeBulletList[i].Update(deltaTime);
             if (_activeBulletList[i].IsExpired)
