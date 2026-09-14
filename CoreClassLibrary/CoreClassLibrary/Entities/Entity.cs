@@ -7,11 +7,11 @@ namespace CoreClassLibrary.Entities;
 // --- BAS KLASS FÖR ALLA ENTITIES --- 
 public class Entity
 {
-    // --- Spatial & Visuel Data 
+    // Spatial & Visuel Data 
     public Vector2 Position { get; set; }
     public Texture2D Texture { get; protected set; }
 
-    // --- Flaga för att managerna ska veta när objektet ska tas bort ur minnet
+    //Flaga för att managerna ska veta när objektet ska tas bort ur minnet
     public bool IsExpired { get; set; } = false;
 
     /// <summary>
@@ -32,17 +32,18 @@ public class Entity
     }
 
 
-    public Entity(){}  // Tom konstruktor så ärvande klasser kan sätta sin egen data 
-
-    public Entity(Vector2 position, Texture2D texture)
+   
+    public Entity(Texture2D texture, Vector2 position)
     {
-        Position = position; 
         Texture = texture; 
+        Position = position; 
+
     }
 
     // Virtual - Andra objekt kan använda "override" metoden med sin egen logik 
     public virtual void Update(GameTime gameTime)
     {
+        //Grundlogik/default logik om jag behöver det.
         
     }
 
