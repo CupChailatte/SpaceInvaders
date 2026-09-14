@@ -52,7 +52,7 @@ public class Entity
     {
         if(Texture != null && !IsExpired)
         {
-            spriteBatch.Draw(Texture, Position, Color.White); 
+            spriteBatch.Draw(Texture, Position, Color.Red); 
         }
     }
 

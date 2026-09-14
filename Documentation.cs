@@ -58,11 +58,21 @@ På slutskärmen skall du rita ut minst 5 valfria sprites med slumpad position.
 - Texture renderas och positoneras sig på skärmen, startar i mitten botten av skärmen - DONE! 
 - Spelare håller sig i fönstret. DONE!. 
 - Player kan röra på sig på X-Axlen (Gör en InputManager - single responsibility - den ska bara ta hand om input. )- DONE! 
-- Plyer ska kunna skjuta! 
-- Player ska ha bullet texture i konstruktorn, eftersom den ska kunna skjuta 
+- Plyer ska kunna skjuta! - DONE! 
+- Player ska ha bullet texture i konstruktorn, eftersom den ska kunna skjuta  -DONE! 
 - BulletManager ska köras I playerclass eftersom då kan player.draw() rita både sprite och bullet. 
 
 
+14 September - 
+Where I left of: 
+ - Tried to fix bullet and bulletManager so that the player can shoot. - FIXED 
+- The problem is that the the namespace "bullet" could not be found. BulletManager class cannot seem to find Bullet Class - FIXED 
+
+
+NEXT MISSION
+- CENTER BULLET SPAWN AT THE CENTER OF THE PLAYER SPRITE
+- SEE IF THE BULLET GETS ERASED AFTER IT GOES BEYOND THE WINDOW
+- ADD ENEMIES 
 
 
 

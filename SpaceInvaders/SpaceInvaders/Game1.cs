@@ -40,10 +40,11 @@ public class Game1 : Game
 
         // --- PLAYER ----
         Texture2D _playerSprite = Content.Load<Texture2D>("PlayerSprite/Ship_01-1"); 
+        Texture2D _bulletSprite = Content.Load<Texture2D>("Bullets/bullet_SI"); 
         float startX =(_display.Width /2f - _playerSprite.Width /2f); 
         float startY = _display.Height  - _playerSprite.Height - 20f; 
         Vector2 playerStartPosition = new Vector2(startX, startY); // Player startar i mitten botten av skärmen
-        _player = new Player(_playerSprite, playerStartPosition,_input, _display.Width, 750f); 
+        _player = new Player(_playerSprite, playerStartPosition,_bulletSprite,_input, _display.Width, 750f); 
     }
 
     protected override void Update(GameTime gameTime)
