@@ -39,6 +39,32 @@
 /processorParam:Version=3.8.5.1
 /build:EnemySprites/alien03_01_sprites.png
 
+#begin EnemySprites/alienFast_01_sprites.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
+/build:EnemySprites/alienFast_01_sprites.png
+
+#begin EnemySprites/alienHeavy_01_sprites.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
+/build:EnemySprites/alienHeavy_01_sprites.png
+
 #begin PlayerSprite/Ship_01-1.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -11,11 +11,13 @@ namespace CoreClassLibrary.Managers;
 public class EnemyManager
 {
     private List<Enemy> _enemyList; 
-    private Texture2D _texture; 
+    private Texture2D _fastEnemy; 
+    private Texture2D _heavyEnemy; 
 
-    public EnemyManager(Texture2D texture)
+    public EnemyManager(Texture2D fastEnemy, Texture2D heavyEnemy)
     {
-        _texture = texture; 
+        _fastEnemy = fastEnemy; 
+        _heavyEnemy = heavyEnemy; 
         _enemyList = new List<Enemy>(); 
     }
 
@@ -34,12 +36,23 @@ public class EnemyManager
         {
             for(int c = 0; c < column; c++)
             {
+                Vector2 spawnPosition = new Vector2(startX + (c * spacingX), startY + (r *spacingY)); 
+
+                if(r < 2)
+                {
+                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 200, 5f, false));
+                }
+                else
+                {
+                    _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 50, 10f, false)); 
+                }
+                /*
                 float x = startX + (c * spacingX); 
                 float y = startY + (r * spacingY); 
 
                 Vector2 spawnPosition = new Vector2(x,y); 
                 _enemyList.Add(new Enemy(_texture, spawnPosition, 100, 10f, false)); 
-                
+                */
             }
         }
 

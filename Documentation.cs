@@ -21,11 +21,11 @@ Visuals
 - Sound
 
 
-///
+/// * = Done 
  ------------ Version 1  -------------------
 
-Spelet skall innehålla minst 3 klasser utöver Game1, dvs. Player, Enemy, och Bullet.
-Spelaren skall kunna styra kanonen i x-led med hjälp av tangentbordet (vänster och höger pilar).
+*Spelet skall innehålla minst 3 klasser utöver Game1, dvs. Player, Enemy, och Bullet.
+*Spelaren skall kunna styra kanonen i x-led med hjälp av tangentbordet (vänster och höger pilar).
 Spelets namn och poäng skall visas i titellisten samt fönsterstorlek sätts så att höjden är större än bredden.
 Minst tre rader med fiender skall placeras högst upp på skärmen. Du skall använda en lista.
 Fienderna är stationära i x-led och rör sig endast nedåt mot spelaren.
@@ -53,7 +53,7 @@ På slutskärmen skall du rita ut minst 5 valfria sprites med slumpad position.
 
 ---- DOCS --- 
 
-1 Först skapar Entity basklass, underklasserna är Bullet, Player och Enemy.
+* 1 Först skapar Entity basklass, underklasserna är Bullet, Player och Enemy.
 2 Gör player class klar: 
 - Texture renderas och positoneras sig på skärmen, startar i mitten botten av skärmen - DONE! 
 - Spelare håller sig i fönstret. DONE!. 
@@ -73,6 +73,18 @@ NEXT MISSION
 - CENTER BULLET SPAWN AT THE CENTER OF THE PLAYER SPRITE
 - SEE IF THE BULLET GETS ERASED AFTER IT GOES BEYOND THE WINDOW
 - ADD ENEMIES 
+
+
+TODO: 15 September
+TODO: Skapa enemy class och enemy manager. 
+* Skapa enemy class, den ska röra sig nedåt med hjälp av Update(). - DONE
+* Lägga enemy i en Lista i enemyManager - Done 
+* enemy ska kunna röra sig neråt. Men mot vänster till höger och neråt
+* Om enemy går hela vägen ner, förlorar man spelet. 
+* Enemy ska kunna skjuta tillbaka mot spelaren
+* EnemyManager ska kunna ta emot olika typer av Enemy objekt - Enemy class ska också ha olika typer av Enemy objekt -> Polymorpism. 
+
+TODO Skapa collision/hitbox. 
 
 
 

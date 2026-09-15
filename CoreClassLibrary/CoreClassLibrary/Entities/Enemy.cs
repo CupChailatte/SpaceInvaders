@@ -3,14 +3,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics; 
 using CoreClassLibrary.Entities;
 
+
 namespace CoreClassLibrary.Entities; 
 
 public class Enemy : Entity
 {
     //Unik data 
-    private int _health; 
-    private float _speed; 
-    private bool _canShoot; 
+    protected int _health; 
+    protected float _speed; 
+    protected bool _canShoot; 
     
     public Enemy(Texture2D texture, Vector2 position, int hp, float speed, bool canShoot) : base(texture, position)
     {
@@ -18,6 +19,7 @@ public class Enemy : Entity
         _speed = speed; 
         _canShoot = canShoot; 
     }
+
 
     public override void Update(GameTime gameTime)
     {
@@ -40,4 +42,43 @@ public class Enemy : Entity
 
 
   
+}
+
+public class FastEnemy : Enemy
+{
+  public FastEnemy(Texture2D texture, Vector2 position, int hp, float speed, bool canShoot)
+  : base (texture, position, hp, speed, canShoot)
+  {
+    
+  }
+  
+  /*//! Behövs inte eftersom den redan ärver rörelsen från Enemy Basklass, om detta implementeras så kommer denna subklass röra sig dubbelt så snabbt. 
+      public override void Update(GameTime gameTime)
+    {
+      base.Update(gameTime);
+      Position = new Vector2(Position.X, Position.Y + (_speed * DeltaTime)); 
+    }
+    */ 
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.Draw(Texture, Position, Color.BlueViolet); 
+    }
+}
+
+public class HeavyEnemy : Enemy
+{
+  public HeavyEnemy(Texture2D texture, Vector2 position, int hp, float speed, bool canShoot) 
+  : base(texture, position, hp, speed, canShoot){}
+
+  
+    /*//! Behövs inte eftersom den redan ärver rörelsen från Enemy Basklass, om detta implementeras så kommer denna subklass röra sig dubbelt så snabbt. 
+    public override void Update(GameTime gameTime)
+    {
+        Position = new Vector2(Position.X, Position.Y + (_speed * DeltaTime)); 
+    }
+    */
+    public override void Draw(SpriteBatch spriteBatch)
+  {
+    spriteBatch.Draw(Texture, Position, Color.Red);
+  }
 }
