@@ -45,7 +45,7 @@ public class Player : Entity
             // Start positon för bullet spawn, vi vill att bullet ska komma fram vid playerSprite. 
             Vector2 bulletOrigin = new Vector2(Position.X + (Texture.Width /2 ), Position.Y); 
             // --- SHOOT Egenskaper - origin, velocity, direction och damage 
-            _bulletManager.Shoot(bulletOrigin, 1000f, new Vector2(0,-1), 10 ); 
+            _bulletManager.Shoot(bulletOrigin, 1000f, new Vector2(0,-3), 10 ); 
 
         }
         _bulletManager.Update(gameTime); 
@@ -54,7 +54,7 @@ public class Player : Entity
         Position.X = MathHelper.Clamp(Position.X, 0, _windowWidth - Texture.Width);
 
     }
-     public void Draw(SpriteBatch spriteBatch)
+     public override void Draw(SpriteBatch spriteBatch) //* Override basklassens Draw()
     {
         spriteBatch.Draw(Texture, Position, Color.White);
         _bulletManager.Draw(spriteBatch);

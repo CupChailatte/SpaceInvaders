@@ -15,6 +15,7 @@ public class Game1 : Game
     private readonly DisplayManager _display; 
     private InputManager _input; 
     private Player _player; 
+    private Enemy _enemy; 
 
     public Game1()
     {
@@ -37,6 +38,10 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         // TODO: use this.Content to load your game content here
+        Texture2D _enemy03Texture = Content.Load<Texture2D>("EnemySprites/alien03_01_sprites"); 
+
+        // --- ENEMY ---
+        _enemy = new Enemy(_enemy03Texture, new Vector2(40,40), 100, 50f, false); 
 
         // --- PLAYER ----
         Texture2D _playerSprite = Content.Load<Texture2D>("PlayerSprite/Ship_01-1"); 
@@ -55,6 +60,7 @@ public class Game1 : Game
         // TODO: Add your update logic here
         _input.Update(); 
         _player.Update(gameTime); 
+        _enemy.Update(gameTime); 
 
         base.Update(gameTime);
     }
@@ -64,6 +70,7 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.Black);
         _spriteBatch.Begin(); 
         _player.Draw(_spriteBatch); 
+        _enemy.Draw(_spriteBatch);
         _spriteBatch.End(); 
         // TODO: Add your drawing code here
 

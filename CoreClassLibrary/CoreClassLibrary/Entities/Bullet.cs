@@ -16,6 +16,7 @@ public class Bullet : Entity
     
     public Bullet(Texture2D texture, Vector2 position, float velocity, Vector2 direction,  float damage) : base(texture, position)
     {
+        //Unik Data 
         _velocity = velocity; 
         _direction = direction; 
         _damage = damage; 
@@ -31,6 +32,12 @@ public class Bullet : Entity
         {
             IsExpired = true; 
         }
+    }
+
+    //* Render Bullet och ändrar bullets färg. 
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.Draw(Texture, Position, Color.Yellow); 
     }
     
 
