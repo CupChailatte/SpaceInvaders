@@ -14,15 +14,16 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private readonly DisplayManager _display; 
     private InputManager _input; 
+    private EnemyManager _enemyManager; 
     private Player _player; 
-    private Enemy _enemy; 
+    //private Enemy _enemy; 
 
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
-        _display = new DisplayManager(_graphics, 720, 1080, false); 
+        _display = new DisplayManager(_graphics, 1080, 1080, false); 
 
     }
 
@@ -41,8 +42,10 @@ public class Game1 : Game
         Texture2D _enemy03Texture = Content.Load<Texture2D>("EnemySprites/alien03_01_sprites"); 
 
         // --- ENEMY ---
-        _enemy = new Enemy(_enemy03Texture, new Vector2(40,40), 100, 50f, false); 
-
+        //_enemy = new Enemy(_enemy03Texture, new Vector2(40,40), 100, 50f, false); //endast en enemy 
+        _enemyManager = new EnemyManager(_enemy03Texture);
+        _enemyManager.SpawnEnemyFleet(1,7); 
+        _enemyManager.SpawnEnemyFleet(1,7); 
         // --- PLAYER ----
         Texture2D _playerSprite = Content.Load<Texture2D>("PlayerSprite/Ship_01-1"); 
         Texture2D _bulletSprite = Content.Load<Texture2D>("Bullets/bullet_SI"); 
@@ -50,6 +53,7 @@ public class Game1 : Game
         float startY = _display.Height  - _playerSprite.Height - 20f; 
         Vector2 playerStartPosition = new Vector2(startX, startY); // Player startar i mitten botten av skärmen
         _player = new Player(_playerSprite, playerStartPosition,_bulletSprite,_input, _display.Width, 750f); 
+   
     }
 
     protected override void Update(GameTime gameTime)
@@ -60,7 +64,8 @@ public class Game1 : Game
         // TODO: Add your update logic here
         _input.Update(); 
         _player.Update(gameTime); 
-        _enemy.Update(gameTime); 
+        //_enemy.Update(gameTime);
+        _enemyManager.Update(gameTime);  
 
         base.Update(gameTime);
     }
@@ -70,7 +75,8 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.Black);
         _spriteBatch.Begin(); 
         _player.Draw(_spriteBatch); 
-        _enemy.Draw(_spriteBatch);
+        //_enemy.Draw(_spriteBatch);
+        _enemyManager.Draw(_spriteBatch); 
         _spriteBatch.End(); 
         // TODO: Add your drawing code here
 
