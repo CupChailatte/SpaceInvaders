@@ -32,6 +32,7 @@ public class Bullet : Entity
             IsExpired = true; 
         }
     }
+    
 
 
 
