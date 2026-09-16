@@ -46,6 +46,8 @@ public class Enemy : Entity
 
 public class FastEnemy : Enemy
 {
+
+  // --- FAST ENEMY --- 
   public FastEnemy(Texture2D texture, Vector2 position, int hp, float speed, bool canShoot)
   : base (texture, position, hp, speed, canShoot)
   {
@@ -61,10 +63,26 @@ public class FastEnemy : Enemy
     */ 
     public override void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(Texture, Position, Color.BlueViolet); 
+        spriteBatch.Draw(Texture, Position, Color.Blue); 
     }
 }
 
+// --- MEDIUM FAST ENEMEY 
+public class MediumEnemy : Enemy
+{
+  public MediumEnemy(Texture2D texture, Vector2 position, int hp, float speed, bool canShoot):
+  base(texture, position, hp, speed, canShoot)
+  {
+    
+  }
+
+  public override void Draw(SpriteBatch spriteBatch)
+  {
+    spriteBatch.Draw(Texture, Position, Color.Green); 
+  }
+}
+
+// --- HEAVY ENEMY --- 
 public class HeavyEnemy : Enemy
 {
   public HeavyEnemy(Texture2D texture, Vector2 position, int hp, float speed, bool canShoot) 
@@ -82,3 +100,4 @@ public class HeavyEnemy : Enemy
     spriteBatch.Draw(Texture, Position, Color.Red);
   }
 }
+

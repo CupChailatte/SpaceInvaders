@@ -93,4 +93,13 @@ TODO Skapa collision/hitbox.
  */ 
 
 
+ /*
+
+ TODO: DETAILS: 
+ ! KOLLA OM OBJEKT SÅ SOM ENEMY ELLER BULLETS BLIR RADERAT NÄR DE FÖRSTÖRS ELLER FÖRSVINNER FRÅN FÖNSTRET. 
+
+
+ */ 
+
+
  

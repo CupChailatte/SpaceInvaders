@@ -42,14 +42,14 @@ public class Game1 : Game
         //--- ENEMY SPRITES --- 
         Texture2D _enemyFastTexture = Content.Load<Texture2D>("EnemySprites/alienFast_01_sprites"); 
         Texture2D _enemyHeavyTexture = Content.Load<Texture2D>("EnemySprites/alienHeavy_01_sprites");
-
+        Texture2D _enemyMediumTexture = Content.Load<Texture2D>("EnemySprites/alienMedium01_sprites"); 
         // --- PLAYER SPRITES --- 
         Texture2D _playerSprite = Content.Load<Texture2D>("PlayerSprite/Ship_01-1"); 
         Texture2D _bulletSprite = Content.Load<Texture2D>("Bullets/bullet_SI"); 
 
         // --- ENEMY SPAWN ---
         //_enemy = new Enemy(_enemy03Texture, new Vector2(40,40), 100, 50f, false); //endast en enemy 
-        _enemyManager = new EnemyManager(_enemyFastTexture, _enemyHeavyTexture);
+        _enemyManager = new EnemyManager(_enemyFastTexture, _enemyMediumTexture,_enemyHeavyTexture);
         _enemyManager.SpawnEnemyFleet(4,7); 
 
 

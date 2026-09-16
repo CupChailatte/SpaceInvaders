@@ -13,10 +13,12 @@ public class EnemyManager
     private List<Enemy> _enemyList; 
     private Texture2D _fastEnemy; 
     private Texture2D _heavyEnemy; 
+    private Texture2D _mediumEnemy; 
 
-    public EnemyManager(Texture2D fastEnemy, Texture2D heavyEnemy)
+    public EnemyManager(Texture2D fastEnemy, Texture2D mediumEnemy,Texture2D heavyEnemy)
     {
         _fastEnemy = fastEnemy; 
+        _mediumEnemy = mediumEnemy; 
         _heavyEnemy = heavyEnemy; 
         _enemyList = new List<Enemy>(); 
     }
@@ -38,13 +40,21 @@ public class EnemyManager
             {
                 Vector2 spawnPosition = new Vector2(startX + (c * spacingX), startY + (r *spacingY)); 
 
-                if(r < 2)
+                if(r >= 3)
                 {
-                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 200, 5f, false));
+                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 200, 5f, false)); // RÖD 
+                }
+                else if (r >= 2)
+                {
+                    _enemyList.Add(new MediumEnemy(_fastEnemy, spawnPosition, 50, 10f, false)); // BLÅ 
+                }
+                else if(r >= 1)
+                {
+                    _enemyList.Add(new FastEnemy(_mediumEnemy, spawnPosition, 75, 7f, false)); // GRÖN 
                 }
                 else
                 {
-                    _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 50, 10f, false)); 
+                    
                 }
                 /*
                 float x = startX + (c * spacingX); 

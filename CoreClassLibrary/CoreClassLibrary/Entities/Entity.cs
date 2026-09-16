@@ -23,7 +23,9 @@ public class Entity
     /// "Virtual" - Polymorphism - Underklasser/Child har tillgång till att ändra 
     /// dess beteende genom att använda "override".  
     /// </summary>
-    public virtual Rectangle HitBox
+    /// 
+    ///
+    /*    public virtual Rectangle HitBox
     {
         get
         {
@@ -34,7 +36,7 @@ public class Entity
         }
 
     }
-
+*/
 
    
     public Entity(Texture2D texture, Vector2 position)
