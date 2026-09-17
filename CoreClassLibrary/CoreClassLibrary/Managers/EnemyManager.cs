@@ -28,8 +28,8 @@ public class EnemyManager
     public void SpawnEnemyFleet(int row, int column)
     {
         //start position 
-        float startX = 60f;
-        float startY = 50f; 
+        float startX = 50f;
+        float startY = 0f; 
         //Spacing mellan enemies
         float spacingX = 150f; 
         float spacingY = 100f; 
@@ -40,17 +40,18 @@ public class EnemyManager
             {
                 Vector2 spawnPosition = new Vector2(startX + (c * spacingX), startY + (r *spacingY)); 
 
-                if(r >= 3)
+                if(r >= 3 )
                 {
-                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 200, 5f, false)); // RÖD 
+                    _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 200, 15f, false)); // RÖD 
+                    
                 }
                 else if (r >= 2)
                 {
-                    _enemyList.Add(new MediumEnemy(_fastEnemy, spawnPosition, 50, 10f, false)); // BLÅ 
+                    _enemyList.Add(new MediumEnemy(_mediumEnemy, spawnPosition, 50, 10f, false)); // BLÅ 
                 }
                 else if(r >= 1)
                 {
-                    _enemyList.Add(new FastEnemy(_mediumEnemy, spawnPosition, 75, 7f, false)); // GRÖN 
+                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 75,5f, false)); // GRÖN 
                 }
                 else
                 {
