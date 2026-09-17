@@ -57,13 +57,7 @@ public class EnemyManager
                 {
                     
                 }
-                /*
-                float x = startX + (c * spacingX); 
-                float y = startY + (r * spacingY); 
 
-                Vector2 spawnPosition = new Vector2(x,y); 
-                _enemyList.Add(new Enemy(_texture, spawnPosition, 100, 10f, false)); 
-                */
             }
         }
 

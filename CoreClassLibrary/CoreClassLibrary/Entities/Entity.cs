@@ -8,14 +8,14 @@ namespace CoreClassLibrary.Entities;
 public class Entity
 {
     // Spatial & Visuel Data 
-    public Vector2 Position; 
+    public Vector2 Position;
     public Texture2D Texture { get; protected set; }
 
     //Flaga för att managerna ska veta när objektet ska tas bort ur minnet
     public bool IsExpired { get; set; } = false;
 
     // Skyddad egenskap så alla underklasser kan läsa det. 
-    protected float DeltaTime {get; private set;}
+    protected float DeltaTime { get; private set; }
 
 
     /// <summary>
@@ -38,11 +38,20 @@ public class Entity
     }
 */
 
-   
+    // Collision Property på Huvudklassen.
+    public virtual Rectangle Bounds => new Rectangle(
+    (int)Position.X,
+    (int)Position.Y,
+    Texture.Width,
+    Texture.Height);
+
+
+
+
     public Entity(Texture2D texture, Vector2 position)
     {
-        Texture = texture; 
-        Position = position; 
+        Texture = texture;
+        Position = position;
 
     }
 
@@ -50,22 +59,16 @@ public class Entity
     public virtual void Update(GameTime gameTime)
     {
         //Grundlogik/default logik om jag behöver det.
-        DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds; 
+        DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
     }
 
     // Om texturen av objekten och objekten är inte expired ska den renderas
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        if(Texture != null && !IsExpired)
+        if (Texture != null && !IsExpired)
         {
-            spriteBatch.Draw(Texture, Position, Color.White); 
+            spriteBatch.Draw(Texture, Position, Color.White);
         }
-    }
-
-    // Anropas om objektet krockar med något t.ex bullet 
-    public virtual void OnCollision(Entity other)
-    {
-        // jag skriver logiken i de specifika klasserna
     }
 
 }
