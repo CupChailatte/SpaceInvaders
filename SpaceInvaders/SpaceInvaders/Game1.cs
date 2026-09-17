@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using CoreClassLibrary.Entities;
 using CoreClassLibrary.Managers; 
+using System.Diagnostics;
 
 
 namespace SpaceInvaders;
@@ -15,14 +16,15 @@ public class Game1 : Game
     private InputManager _input; 
     private EnemyManager _enemyManager; 
     private Player _player; 
-    //private Enemy _enemy; 
+    private SpriteFont _text; 
+    Vector2 _textPosition; 
 
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
-        _display = new DisplayManager(_graphics, 1080, 1080, false); 
+        _display = new DisplayManager(_graphics,1080, 1300, false); 
 
     }
 
@@ -30,6 +32,7 @@ public class Game1 : Game
     {
         // TODO: Add your initialization logic here
         _input = new InputManager(); 
+        Window.Title = "SPACE INVADERS"; 
         base.Initialize();
     }
 
@@ -46,6 +49,10 @@ public class Game1 : Game
         // --- PLAYER SPRITES --- 
         Texture2D _playerSprite = Content.Load<Texture2D>("PlayerSprite/Ship_01-1"); 
         Texture2D _bulletSprite = Content.Load<Texture2D>("Bullets/bullet_SI"); 
+
+        // --- TEXT --- 
+        _text = Content.Load<SpriteFont>("Text/Health"); 
+        _textPosition = new Vector2(60,60); 
 
         // --- ENEMY SPAWN ---
         //_enemy = new Enemy(_enemy03Texture, new Vector2(40,40), 100, 50f, false); //endast en enemy 
@@ -81,6 +88,8 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.Black);
         _spriteBatch.Begin(); 
         _player.Draw(_spriteBatch); 
+        string output = "HEALTH: 1 POINTS: 0"; 
+        _spriteBatch.DrawString(_text, output, _textPosition, Color.White, 0, new Vector2(50,50), 1.0f, SpriteEffects.None, 0.5f);
         //_enemy.Draw(_spriteBatch);
         _enemyManager.Draw(_spriteBatch); 
         _spriteBatch.End(); 

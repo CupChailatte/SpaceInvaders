@@ -28,8 +28,10 @@ public class EnemyManager
     public void SpawnEnemyFleet(int row, int column)
     {
         //start position 
+        // //! HARDKODAT - TODO: Måste hitta ett annat sätt att positonera,
+        // //! för att om fönsterstorlek ändras kommer start positionen vara olika.
         float startX = 50f;
-        float startY = 0f; 
+        float startY = -50f; 
         //Spacing mellan enemies
         float spacingX = 150f; 
         float spacingY = 100f; 

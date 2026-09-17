@@ -13,6 +13,7 @@ public class DisplayManager
 
     public DisplayManager(GraphicsDeviceManager graphics, int width, int height, bool isFullScreen)
     {
+    
         _graphics = graphics;
         SetResolution(width, height);
     }
@@ -28,4 +29,10 @@ public class DisplayManager
         _graphics.IsFullScreen = IsFullScreen;
         _graphics.ApplyChanges();
     }
+
+    public void DisplayText()
+    {
+        
+    }
+   
 }

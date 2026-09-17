@@ -28,7 +28,7 @@ Visuals
 *Spelaren skall kunna styra kanonen i x-led med hjälp av tangentbordet (vänster och höger pilar).
 Spelets namn och poäng skall visas i titellisten samt fönsterstorlek sätts så att höjden är större än bredden.
 Minst tre rader med fiender skall placeras högst upp på skärmen. Du skall använda en lista.
-Fienderna är stationära i x-led och rör sig endast nedåt mot spelaren.
+* Fienderna är stationära i x-led och rör sig endast nedåt mot spelaren.
 Spelaren skall skjuta fiender men fienderna behöver inte skjuta tillbaka mot spelaren.
 Spelaren skall förlora ett liv om en fiende når botten av skärmen
 ///
@@ -84,8 +84,14 @@ TODO: Skapa enemy class och enemy manager.
 * Enemy ska kunna skjuta tillbaka mot spelaren
 * EnemyManager ska kunna ta emot olika typer av Enemy objekt - Enemy class ska också ha olika typer av Enemy objekt -> Polymorpism. 
 
-TODO Skapa collision/hitbox. 
-
+TODO COLLISION MANAGER
+TODO UI MANAGER 
+TODO 
+TODO 
+TODO 
+TODO 
+TODO 
+TODO 
 
 
 
