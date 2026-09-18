@@ -85,7 +85,7 @@ TODO: Skapa enemy class och enemy manager.
 * EnemyManager ska kunna ta emot olika typer av Enemy objekt - Enemy class ska också ha olika typer av Enemy objekt -> Polymorpism. 
 
 TODO COLLISION MANAGER
-TODO UI MANAGER 
+TODO UI MANAGER - Userinterface för health, points, start game eller game over skärm. 
 TODO 
 TODO 
 TODO 

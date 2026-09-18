@@ -16,8 +16,8 @@ public class Game1 : Game
     private InputManager _input; 
     private EnemyManager _enemyManager; 
     private Player _player; 
-    private SpriteFont _text; 
-    Vector2 _textPosition; 
+    private SpriteFont _text; //TODO FLYTTA TILL UI MANAGER 
+    Vector2 _textPosition; //TODO FLYTTA TILL UI MANAGER 
 
     public Game1()
     {
@@ -50,7 +50,7 @@ public class Game1 : Game
         Texture2D _playerSprite = Content.Load<Texture2D>("PlayerSprite/Ship_01-1"); 
         Texture2D _bulletSprite = Content.Load<Texture2D>("Bullets/bullet_SI"); 
 
-        // --- TEXT --- 
+        // --- TEXT --- //TODO FLYTTA TILL UI MANAGER 
         _text = Content.Load<SpriteFont>("Text/Health"); 
         _textPosition = new Vector2(60,60); 
 
@@ -88,8 +88,8 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.Black);
         _spriteBatch.Begin(); 
         _player.Draw(_spriteBatch); 
-        string output = "HEALTH: 1 POINTS: 0"; 
-        _spriteBatch.DrawString(_text, output, _textPosition, Color.White, 0, new Vector2(50,50), 1.0f, SpriteEffects.None, 0.5f);
+        string output = "HEALTH: 1 POINTS: 0"; //TODO FLYTTA TILL UI MANAGER 
+        _spriteBatch.DrawString(_text, output, _textPosition, Color.White, 0, new Vector2(50,50), 1.0f, SpriteEffects.None, 0.5f); //TODO FLYTTA TILL UI MANAGER 
         //_enemy.Draw(_spriteBatch);
         _enemyManager.Draw(_spriteBatch); 
         _spriteBatch.End(); 
