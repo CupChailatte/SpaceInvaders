@@ -15,15 +15,17 @@ public class Player : Entity
     private InputManager _input;
     private int _windowWidth; 
     private BulletManager _bulletManager; 
+    public int Health; 
 
 
-    public Player(Texture2D texture, Vector2 position,Texture2D bulletTexture ,InputManager inputManager,int windowWidth, float speed)
+    public Player(Texture2D texture, Vector2 position,Texture2D bulletTexture ,InputManager inputManager,int windowWidth, float speed, int health)
     : base(texture, position)
     {
         _input = inputManager;
         _windowWidth = windowWidth; 
         _speed = speed;
         _bulletManager = new BulletManager(bulletTexture); 
+        Health = health; 
 
     }
 
@@ -48,12 +50,27 @@ public class Player : Entity
             _bulletManager.Shoot(bulletOrigin, 1000f, new Vector2(0,-3), 10 ); 
 
         }
+
+
+        
         _bulletManager.Update(gameTime); 
 
         // --- HÅLLER SPELARE INNANFÖR FÖNSTRET --- 
         Position.X = MathHelper.Clamp(Position.X, 0, _windowWidth - Texture.Width);
 
     }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage; 
+        if(Health <= 0)
+        {
+            Health = 0;  // health inte går under 0. 
+        }
+        
+    }
+
+
      public override void Draw(SpriteBatch spriteBatch) //* Override basklassens Draw()
     {
         spriteBatch.Draw(Texture, Position, Color.White);

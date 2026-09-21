@@ -57,7 +57,7 @@ public class Game1 : Game
         // --- ENEMY SPAWN ---
         //_enemy = new Enemy(_enemy03Texture, new Vector2(40,40), 100, 50f, false); //endast en enemy 
         _enemyManager = new EnemyManager(_enemyFastTexture, _enemyMediumTexture,_enemyHeavyTexture);
-        _enemyManager.SpawnEnemyFleet(4,7); 
+        _enemyManager.SpawnEnemyFleet(5,7); 
 
 
         // --- PLAYER ----
@@ -65,7 +65,7 @@ public class Game1 : Game
         float startX =(_display.Width /2f - _playerSprite.Width /2f); 
         float startY = _display.Height  - _playerSprite.Height - 20f; 
         Vector2 playerStartPosition = new Vector2(startX, startY); // Player startar i mitten botten av skärmen
-        _player = new Player(_playerSprite, playerStartPosition,_bulletSprite,_input, _display.Width, 750f); 
+        _player = new Player(_playerSprite, playerStartPosition,_bulletSprite,_input, _display.Width, 750f, 100); 
    
     }
 
@@ -80,6 +80,24 @@ public class Game1 : Game
         //_enemy.Update(gameTime);
         _enemyManager.Update(gameTime);  
 
+
+
+        // !!! PUT INTO MANAGER! 
+        // Tar damage när enemies går förbi player 
+       foreach (var enemy in _enemyManager.enemies)
+        {
+            if (enemy.Position.Y > _display.Height)
+            {
+                _player.TakeDamage(10);
+                enemy.IsExpired = true; 
+                Debug.Write("Enemy out of bounds");
+
+            }
+        }
+
+       
+        
+
         base.Update(gameTime);
     }
 
@@ -88,7 +106,7 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.Black);
         _spriteBatch.Begin(); 
         _player.Draw(_spriteBatch); 
-        string output = "HEALTH: 1 POINTS: 0"; //TODO FLYTTA TILL UI MANAGER 
+        string output = $"HEALTH: {_player.Health} POINTS: 0"; //TODO FLYTTA TILL UI MANAGER 
         _spriteBatch.DrawString(_text, output, _textPosition, Color.White, 0, new Vector2(50,50), 1.0f, SpriteEffects.None, 0.5f); //TODO FLYTTA TILL UI MANAGER 
         //_enemy.Draw(_spriteBatch);
         _enemyManager.Draw(_spriteBatch); 
