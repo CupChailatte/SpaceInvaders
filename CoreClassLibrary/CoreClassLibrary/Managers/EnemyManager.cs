@@ -46,7 +46,7 @@ public class EnemyManager
 
                 if (r >= 3)
                 {
-                    _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 200, 100f, false)); // RÖD 
+                    _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 200, 15f, false)); // RÖD 
 
                 }
                 else if (r >= 2)
