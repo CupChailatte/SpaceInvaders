@@ -13,6 +13,7 @@ public class Player : Entity
     private float _speed = 400f;
     //  private float _fireRate;
     private InputManager _input;
+<<<<<<< HEAD
     private int _windowWidth;
     private BulletManager _bulletManager;
     private int _health = 3;
@@ -20,13 +21,26 @@ public class Player : Entity
 
     public Player(Texture2D texture, Vector2 position, Texture2D bulletTexture
      , InputManager inputManager, int windowWidth, float speed, int health)
+=======
+    private int _windowWidth; 
+    private BulletManager _bulletManager; 
+    public int Health; 
+
+
+    public Player(Texture2D texture, Vector2 position,Texture2D bulletTexture ,InputManager inputManager,int windowWidth, float speed, int health)
+>>>>>>> 3f595c1bb89844ad92e6269ca976ead6a89ca9ab
     : base(texture, position)
     {
         _input = inputManager;
         _windowWidth = windowWidth;
         _bulletManager = new BulletManager(bulletTexture);
         _speed = speed;
+<<<<<<< HEAD
         _health = health;
+=======
+        _bulletManager = new BulletManager(bulletTexture); 
+        Health = health; 
+>>>>>>> 3f595c1bb89844ad92e6269ca976ead6a89ca9ab
 
     }
 
@@ -51,13 +65,21 @@ public class Player : Entity
             _bulletManager.Shoot(bulletOrigin, 1000f, new Vector2(0, -3), 10);
 
         }
+<<<<<<< HEAD
         _bulletManager.Update(gameTime);
+=======
+
+
+        
+        _bulletManager.Update(gameTime); 
+>>>>>>> 3f595c1bb89844ad92e6269ca976ead6a89ca9ab
 
         // --- HÅLLER SPELARE INNANFÖR FÖNSTRET --- 
         Position.X = MathHelper.Clamp(Position.X, 0, _windowWidth - Texture.Width);
 
     }
 
+<<<<<<< HEAD
     public void TakeDamage(int amount)
     {
         _health -= amount;
@@ -67,6 +89,20 @@ public class Player : Entity
 
 
     public override void Draw(SpriteBatch spriteBatch) //* Override basklassens Draw()
+=======
+    public void TakeDamage(int damage)
+    {
+        Health -= damage; 
+        if(Health <= 0)
+        {
+            Health = 0;  // health inte går under 0. 
+        }
+        
+    }
+
+
+     public override void Draw(SpriteBatch spriteBatch) //* Override basklassens Draw()
+>>>>>>> 3f595c1bb89844ad92e6269ca976ead6a89ca9ab
     {
         spriteBatch.Draw(Texture, Position, Color.White);
         _bulletManager.Draw(spriteBatch);

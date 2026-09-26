@@ -11,7 +11,11 @@ namespace CoreClassLibrary.Managers;
 public class EnemyManager
 {
     private List<Enemy> _enemyList;
+<<<<<<< HEAD
     public List<Enemy> enemies => _enemyList;
+=======
+    public List<Enemy> enemies => _enemyList; 
+>>>>>>> 3f595c1bb89844ad92e6269ca976ead6a89ca9ab
     private Texture2D _fastEnemy;
     private Texture2D _heavyEnemy;
     private Texture2D _mediumEnemy;
@@ -43,6 +47,10 @@ public class EnemyManager
             {
                 Vector2 spawnPosition = new Vector2(startX + (c * spacingX), startY + (r * spacingY));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3f595c1bb89844ad92e6269ca976ead6a89ca9ab
                 if (r >= 3)
                 {
                     _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 200, 15f, false)); // RÖD 

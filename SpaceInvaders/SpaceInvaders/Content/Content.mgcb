@@ -91,11 +91,11 @@
 /processorParam:Version=3.8.5.1
 /build:PlayerSprite/Ship_01-1.png
 
-#begin Text/TextHealth.spritefont
+#begin Text/Health.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /processorParam:Version=3.8.5.1
-/build:Text/TextHealth.spritefont
+/build:Text/Health.spritefont
 
