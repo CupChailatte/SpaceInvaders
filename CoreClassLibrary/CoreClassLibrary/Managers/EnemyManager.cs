@@ -1,26 +1,27 @@
 
-using System; 
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CoreClassLibrary.Entities;
 
 
-namespace CoreClassLibrary.Managers; 
+namespace CoreClassLibrary.Managers;
 
 public class EnemyManager
 {
-    private List<Enemy> _enemyList; 
-    private Texture2D _fastEnemy; 
-    private Texture2D _heavyEnemy; 
-    private Texture2D _mediumEnemy; 
+    private List<Enemy> _enemyList;
+    public List<Enemy> enemies => _enemyList;
+    private Texture2D _fastEnemy;
+    private Texture2D _heavyEnemy;
+    private Texture2D _mediumEnemy;
 
-    public EnemyManager(Texture2D fastEnemy, Texture2D mediumEnemy,Texture2D heavyEnemy)
+    public EnemyManager(Texture2D fastEnemy, Texture2D mediumEnemy, Texture2D heavyEnemy)
     {
-        _fastEnemy = fastEnemy; 
-        _mediumEnemy = mediumEnemy; 
-        _heavyEnemy = heavyEnemy; 
-        _enemyList = new List<Enemy>(); 
+        _fastEnemy = fastEnemy;
+        _mediumEnemy = mediumEnemy;
+        _heavyEnemy = heavyEnemy;
+        _enemyList = new List<Enemy>();
     }
 
     //---METOD FÖR ATT SPAWNA ENEMIES--- 
@@ -31,33 +32,33 @@ public class EnemyManager
         // //! HARDKODAT - TODO: Måste hitta ett annat sätt att positonera,
         // //! för att om fönsterstorlek ändras kommer start positionen vara olika.
         float startX = 50f;
-        float startY = -50f; 
+        float startY = -50f;
         //Spacing mellan enemies
-        float spacingX = 150f; 
-        float spacingY = 100f; 
+        float spacingX = 150f;
+        float spacingY = 100f;
 
         for (int r = 0; r < row; r++)
         {
-            for(int c = 0; c < column; c++)
+            for (int c = 0; c < column; c++)
             {
-                Vector2 spawnPosition = new Vector2(startX + (c * spacingX), startY + (r *spacingY)); 
+                Vector2 spawnPosition = new Vector2(startX + (c * spacingX), startY + (r * spacingY));
 
-                if(r >= 3 )
+                if (r >= 3)
                 {
                     _enemyList.Add(new FastEnemy(_fastEnemy, spawnPosition, 200, 15f, false)); // RÖD 
-                    
+
                 }
                 else if (r >= 2)
                 {
                     _enemyList.Add(new MediumEnemy(_mediumEnemy, spawnPosition, 50, 10f, false)); // BLÅ 
                 }
-                else if(r >= 1)
+                else if (r >= 1)
                 {
-                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 75,5f, false)); // GRÖN 
+                    _enemyList.Add(new HeavyEnemy(_heavyEnemy, spawnPosition, 75, 5f, false)); // GRÖN 
                 }
                 else
                 {
-                    
+
                 }
 
             }
@@ -81,13 +82,13 @@ public class EnemyManager
     {
         for (int i = _enemyList.Count - 1; i >= 0; i--)
         {
-            _enemyList[i].Update(gameTime); 
+            _enemyList[i].Update(gameTime);
 
-         // Example: Remove dead enemies safely
-        // if (_enemyList[i].IsDead) 
-        // {
-        //     _enemyList.RemoveAt(i);
-        // }
+            // Example: Remove dead enemies safely
+            // if (_enemyList[i].IsDead) 
+            // {
+            //     _enemyList.RemoveAt(i);
+            // }
         }
     }
 
@@ -97,7 +98,7 @@ public class EnemyManager
     {
         foreach (var enemy in _enemyList)
         {
-            enemy.Draw(spriteBatch); 
+            enemy.Draw(spriteBatch);
         }
     }
 }

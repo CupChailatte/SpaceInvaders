@@ -13,17 +13,20 @@ public class Player : Entity
     private float _speed = 400f;
     //  private float _fireRate;
     private InputManager _input;
-    private int _windowWidth; 
-    private BulletManager _bulletManager; 
+    private int _windowWidth;
+    private BulletManager _bulletManager;
+    private int _health = 3;
 
 
-    public Player(Texture2D texture, Vector2 position,Texture2D bulletTexture ,InputManager inputManager,int windowWidth, float speed)
+    public Player(Texture2D texture, Vector2 position, Texture2D bulletTexture
+     , InputManager inputManager, int windowWidth, float speed, int health)
     : base(texture, position)
     {
         _input = inputManager;
-        _windowWidth = windowWidth; 
+        _windowWidth = windowWidth;
+        _bulletManager = new BulletManager(bulletTexture);
         _speed = speed;
-        _bulletManager = new BulletManager(bulletTexture); 
+        _health = health;
 
     }
 
@@ -35,26 +38,35 @@ public class Player : Entity
         {
             Position.X -= _speed * deltaTime;
         }
-        if (_input.IsKeyDown(Keys.Right)|| _input.IsKeyDown(Keys.D))
+        if (_input.IsKeyDown(Keys.Right) || _input.IsKeyDown(Keys.D))
         {
-            Position.X += _speed * deltaTime; 
+            Position.X += _speed * deltaTime;
         }
         // --- SKJUTA --- 
         if (_input.IsKeyPressed(Keys.Space) || _input.IsLeftClick())
         {
             // Start positon för bullet spawn, vi vill att bullet ska komma fram vid playerSprite. 
-            Vector2 bulletOrigin = new Vector2(Position.X + (Texture.Width /2 ), Position.Y); 
+            Vector2 bulletOrigin = new Vector2(Position.X + (Texture.Width / 2), Position.Y);
             // --- SHOOT Egenskaper - origin, velocity, direction och damage 
-            _bulletManager.Shoot(bulletOrigin, 1000f, new Vector2(0,-3), 10 ); 
+            _bulletManager.Shoot(bulletOrigin, 1000f, new Vector2(0, -3), 10);
 
         }
-        _bulletManager.Update(gameTime); 
+        _bulletManager.Update(gameTime);
 
         // --- HÅLLER SPELARE INNANFÖR FÖNSTRET --- 
         Position.X = MathHelper.Clamp(Position.X, 0, _windowWidth - Texture.Width);
 
     }
-     public override void Draw(SpriteBatch spriteBatch) //* Override basklassens Draw()
+
+    public void TakeDamage(int amount)
+    {
+        _health -= amount;
+        if (_health < 0) _health = 0;
+
+    }
+
+
+    public override void Draw(SpriteBatch spriteBatch) //* Override basklassens Draw()
     {
         spriteBatch.Draw(Texture, Position, Color.White);
         _bulletManager.Draw(spriteBatch);
